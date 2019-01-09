@@ -1,6 +1,3 @@
-#Derrick Sung
-#Provided help by Udemy.com Python Instructor - Ardit Sulce
-
 import json
 from difflib import get_close_matches
 
