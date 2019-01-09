@@ -1,4 +1,6 @@
 #Derrick Sung
+#This program is used as an Interactive Dictionary that is user-friendly. It is programmed to encounter any errors a User may make.
+#These errors can contain misspelling or even capitalization.
 
 import json
 from difflib import get_close_matches
@@ -9,7 +11,7 @@ def translate(word):
     word = word.lower()
     if word in data:
         return data[word]
-    elif word.title() in data: #this is used if the user has entered "texas" this will check for "Texas" as well
+    elif word.title() in data: #this is used for any capitalization errors, the program will automatically convert the strings in order to find the correct word.
         return data[word.title()]
     elif word.upper() in data: #this is used for acronym such as "USA" or "NATO"
         return data[word.upper()]
@@ -18,11 +20,11 @@ def translate(word):
         if yn == "Y":
             return data[get_close_matches(word, data.keys())[0]]
         elif yn == "N":
-            return "The word doesn't exist. Please double check it."
+            return "The word you have entered does not exist. Please make sure it is an existing word."
         else:
-            return "We didn't understand your entry."
+            return "I'm sorry, we did not understand the word you have entered."
     else:
-        return "The word doesn't exist. Please double check it."
+        return "The word you have entered does not exist. Please make sure it is an existing word."
 
 word = input("Enter word: ")
 
